@@ -57,19 +57,7 @@ let t = null;
 let secondsLeft = 0;
 
 function startTimer() {
-  clearInterval(t);
-  secondsLeft = 120; // можно менять
-  $("timer").textContent = secondsLeft;
-  t = setInterval(() => {
-    if (locked) return;
-    secondsLeft--;
-    $("timer").textContent = secondsLeft;
-    if (secondsLeft <= 0) {
-      clearInterval(t);
-      // auto fail, но мягко: просто показать правильный и дать Next
-      lockAndReveal(null, true);
-    }
-  }, 1000);
+  $("timer").textContent = "∞";
 }
 
 function renderQuestion(q) {
@@ -182,5 +170,6 @@ async function init() {
 }
 
 init();
+
 
 
