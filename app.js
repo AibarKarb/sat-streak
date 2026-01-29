@@ -76,19 +76,25 @@ function renderQuestion(q) {
   current = q;
   locked = false;
   $("title").textContent = "Sprint";
-  $("question").textContent = q.question;
+  
+  $("question").innerHTML =
+  (q.passage ? `<div style="opacity:.85;margin-bottom:10px">${q.passage}</div>` : "")
+  + `<div>${q.question}</div>`;
+
+  
   $("meta").textContent = `${q.section.toUpperCase()} • lvl ${q.difficulty}`;
   $("hint").textContent = "Tap an answer. Keep the streak alive.";
 
   const wrap = $("choices");
   wrap.innerHTML = "";
 
-  q.choices.forEach(choice => {
-    const btn = document.createElement("button");
-    btn.textContent = choice;
-    btn.onclick = () => lockAndReveal(choice, false);
-    wrap.appendChild(btn);
-  });
+  Object.entries(q.choices).forEach(([key, text]) => {
+  const btn = document.createElement("button");
+  btn.textContent = `${key}. ${text}`;
+  btn.onclick = () => lockAndReveal(key, false);
+  wrap.appendChild(btn);
+});
+
 
   startTimer();
 }
@@ -128,7 +134,7 @@ function lockAndReveal(selected, timeoutFail) {
   const correct = current.answer;
 
   buttons.forEach(btn => {
-    if (btn.textContent === correct) btn.classList.add("ok");
+    if (btn.textContent.startsWith(correct + ".")) btn.classList.add("ok");
     if (selected && btn.textContent === selected && selected !== correct) btn.classList.add("bad");
     btn.disabled = true;
   });
@@ -176,3 +182,4 @@ async function init() {
 }
 
 init();
+
