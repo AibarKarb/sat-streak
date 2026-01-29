@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "section": "math",
+    "difficulty": 1,
+    "question": "If 3x + 5 = 14, what is x?",
+    "choices": ["1", "2", "3", "4"],
+    "answer": "3"
+  },
+  {
+    "id": 2,
+    "section": "writing",
+    "difficulty": 1,
+    "question": "Choose the correct word: Their/There/They're going to the park.",
+    "choices": ["Their", "There", "They're", "No change"],
+    "answer": "They're"
+  }
+]

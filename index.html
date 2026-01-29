@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#111111" />
+  <title>Brain Sprint</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <!-- iOS icon (желательно) -->
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+  <style>
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:#0f0f10;color:#fff}
+    .wrap{max-width:720px;margin:0 auto;padding:20px;min-height:100vh;box-sizing:border-box;display:flex;flex-direction:column;gap:16px}
+    .top{display:flex;justify-content:space-between;gap:12px;align-items:center}
+    .pill{background:#1b1b1d;border:1px solid #2a2a2d;padding:10px 12px;border-radius:999px;font-size:14px}
+    .card{background:#151517;border:1px solid #2a2a2d;border-radius:18px;padding:18px}
+    h1{font-size:18px;margin:0 0 8px 0;font-weight:700}
+    .q{font-size:18px;line-height:1.35;margin:6px 0 0 0}
+    .choices{display:grid;gap:10px;margin-top:14px}
+    button{width:100%;text-align:left;background:#1b1b1d;border:1px solid #2a2a2d;color:#fff;border-radius:14px;padding:14px;font-size:16px}
+    button:active{transform:scale(0.99)}
+    .ok{border-color:#2e7d32}
+    .bad{border-color:#c62828}
+    .muted{opacity:.8;font-size:13px}
+    .row{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .smallbtn{width:auto;text-align:center;padding:10px 12px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div class="pill">🔥 Streak: <span id="streak">0</span></div>
+      <div class="pill">⭐ XP: <span id="xp">0</span></div>
+      <div class="pill">✅ Solved: <span id="solved">0</span></div>
+    </div>
+
+    <div class="card">
+      <div class="row">
+        <div class="muted"><span id="meta">Loading…</span></div>
+        <div class="muted">⏱ <span id="timer">—</span></div>
+      </div>
+      <h1 id="title">Question</h1>
+      <p class="q" id="question">…</p>
+      <div class="choices" id="choices"></div>
+      <div class="row" style="margin-top:14px;">
+        <button class="smallbtn" id="skip">Skip</button>
+        <button class="smallbtn" id="reset">Reset stats</button>
+      </div>
+      <div class="muted" id="hint" style="margin-top:10px;"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
