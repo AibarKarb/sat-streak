@@ -58,7 +58,7 @@ let secondsLeft = 0;
 
 function startTimer() {
   clearInterval(t);
-  secondsLeft = 25; // можно менять
+  secondsLeft = 120; // можно менять
   $("timer").textContent = secondsLeft;
   t = setInterval(() => {
     if (locked) return;
@@ -182,4 +182,5 @@ async function init() {
 }
 
 init();
+
 
